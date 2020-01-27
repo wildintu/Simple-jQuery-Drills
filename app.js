@@ -14,17 +14,21 @@ $(document).ready(function(){
     });
 
     $('<div></div>').appendTo('body');
-    $('<h2></h2>').appendTo('div');
+    $('<ul></ul>').appendTo('div');
 
     $("form").submit(function(e) {
         e.preventDefault();
         let msg = $('#message').val();
-        $('h2').append(`<ul>${msg}</h2>`);
+        $('ul').append(`<li>${msg}</li>`);
     });
     
-    $("h2").mouseover(function (event) {
+    $("ul").click(function (event) {
         console.log(event);
         $(event.target).css({'background-color': getRandomColor(), 'border-radius': '30px'});
+    })
+
+    $("ul").dblclick(function (event) {
+        $(event.target).remove();
     })
 
 });
